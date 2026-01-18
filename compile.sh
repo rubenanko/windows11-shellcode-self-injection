@@ -21,4 +21,8 @@ c_array_content="${c_array_content:1}"
 
 # génère un fichier C à partir du template
 sed "s;SET_SIZE;$c_array_size;g" main.tpl.c | sed "s;SET_BYTECODE;$c_array_content;g" > main.c
-gcc main.c -o main -zexecstack
+# gcc main.c -o main -zexecstack
+x86_64-w64-mingw32-gcc main.c -o pefile.exe \
+  -fno-stack-protector \
+  -Wl,--disable-nxcompat \
+  -Wl,--disable-dynamicbase
