@@ -32,4 +32,6 @@ sed "s;SET_SIZE;$c_array_size;g" main.tpl.c | sed "s;SET_BYTECODE;$c_array_conte
 x86_64-w64-mingw32-gcc tmp/main.c -o tmp/pefile.exe \
   -fno-stack-protector \
   -Wl,--disable-nxcompat \
-  -Wl,--disable-dynamicbase
+  -Wl,--disable-dynamicbase \
+  -nostdlib -nodefaultlibs \
+  -lkernel32
